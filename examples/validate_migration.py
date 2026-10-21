@@ -1,4 +1,3 @@
-```python
 import csv
 import sys
 from pathlib import Path
@@ -73,4 +72,3 @@ if __name__ == "__main__":
         sys.exit(2)
 
     sys.exit(0 if valid else 1)
-```
