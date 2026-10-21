@@ -34,6 +34,7 @@ The final design depends on source and target database engines, connectivity, pe
 | [Data Validation Plan](docs/data-validation.md) | Row counts, record comparisons, CDC verification, and cutover criteria |
 | [Troubleshooting Guide](docs/troubleshooting.md) | Diagnostic steps for permissions, connectivity, load, and replication issues |
 | [Sample Migration Validation Report](docs/sample-validation-report.md) — expected results, validation scope, and project limitations |
+| [Project Walkthrough](docs/project-walkthrough.md) — end-to-end explanation of the migration scenario, validation process, automated tests, security, and future implementation |
 
 ## Current Status
 
