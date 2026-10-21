@@ -127,6 +127,7 @@ The test suite covers:
 - Detection of records missing from the target.
 - Detection of unexpected extra target records.
 - Duplicate customer ID rejection: Confirms that the CSV loader raises a validation error when a customer ID appears more than once.
+- Required CSV header validation: Confirms that the CSV loader rejects files that do not contain the required `customer_id` column.
 
 **Latest recorded result:** Passed (green GitHub Actions check).
 
