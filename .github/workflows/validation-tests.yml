@@ -1,22 +1,26 @@
+
 name: Migration Validation Tests
 
-"on":
-  push:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-         - name: Run migration validation unit tests
-      run: python -m unittest -v test_validate_migration.py
-      working-directory: examples
 
-    - name: Compare committed source and target CSV files
-      run: python validate_migration.py
-      working-directory: examples
-      continue-on-error: true
+      - name: Run migration validation unit tests
+        run: python -m unittest -v test_validate_migration.py
+        working-directory: examples
+
+      - name: Verify expected CSV discrepancy
+        run: |
+          python -c "from validate_migration import load_csv, compare_data; from pathlib import Path; source = load_csv(Path('source_data.csv')); target = load_csv(Path('target_data.csv')); detected = not compare_data(source, target); print('Expected discrepancy detected.' if detected else 'ERROR: No discrepancy detected.'); raise SystemExit(0 if detected else 1)"
+        working-directory: examples
