@@ -130,3 +130,15 @@ The test suite covers:
 **Latest recorded result:** Passed (green GitHub Actions check).
 
 These unit tests use synthetic sample records. They validate the comparison logic but do not demonstrate a live AWS DMS migration or verify the actual CSV datasets against a deployed database.
+
+## Automated CSV Validation in GitHub Actions
+
+The GitHub Actions workflow runs the migration-validation unit tests and verifies that the committed sample source and target CSV datasets contain a detectable discrepancy.
+
+The workflow succeeds when:
+- The migration-validation unit tests pass.
+- A discrepancy between the sample datasets is detected as expected.
+
+This demonstrates automated validation of sample migration data in a repeatable CI workflow. The datasets are synthetic examples; this result does not represent a live AWS DMS migration or a production database validation.
+
+**Status:** Successfully executed in GitHub Actions.
