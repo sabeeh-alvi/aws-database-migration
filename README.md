@@ -1,3 +1,5 @@
+[![Migration Validation Tests](https://github.com/sabeeh-alvi/aws-database-migration/actions/workflows/validation-tests.yml/badge.svg)](https://github.com/sabeeh-alvi/aws-database-migration/actions/workflows/validation-tests.yml)
+
 # AWS Database Migration and Modernization
 
 ## Project Overview
