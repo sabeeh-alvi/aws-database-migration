@@ -33,6 +33,7 @@ The final design depends on source and target database engines, connectivity, pe
 | [IAM and Security](docs/iam-security.md) | Least privilege, credentials, networking, and data protection |
 | [Data Validation Plan](docs/data-validation.md) | Row counts, record comparisons, CDC verification, and cutover criteria |
 | [Troubleshooting Guide](docs/troubleshooting.md) | Diagnostic steps for permissions, connectivity, load, and replication issues |
+| [Sample Migration Validation Report](docs/sample-validation-report.md) — expected results, validation scope, and project limitations |
 
 ## Current Status
 
