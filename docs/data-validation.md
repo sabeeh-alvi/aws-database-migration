@@ -115,3 +115,18 @@ Cutover should proceed only after the responsible team confirms that:
 ## Limitations
 
 Validation methods must be adapted to the source and target database engines. This plan documents intended checks; it does not claim that migration or validation has occurred.
+
+## Automated Test Results
+
+The migration validation logic is covered by automated Python unit tests executed through GitHub Actions.
+
+The test suite covers:
+
+- Matching source and target records.
+- Detection of changed field values.
+- Detection of records missing from the target.
+- Detection of unexpected extra target records.
+
+**Latest recorded result:** Passed (green GitHub Actions check).
+
+These unit tests use synthetic sample records. They validate the comparison logic but do not demonstrate a live AWS DMS migration or verify the actual CSV datasets against a deployed database.
