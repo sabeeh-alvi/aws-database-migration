@@ -1,0 +1,5 @@
+customer_id,first_name,last_name,email,city
+1001,Amina,Khan,amina.khan@example.com,Toronto
+1002,Omar,Ali,omar.ali@example.com,Mississauga
+1003,Sara,Ahmed,sara.ahmed@example.com,Ottawa
+1004,Daniel,Lee,daniel.lee@example.com,Calgary
