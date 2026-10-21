@@ -54,6 +54,7 @@ class TestMigrationValidation(unittest.TestCase):
         self.assertFalse(compare_data(source, target))
 
     def test_duplicate_customer_id_is_rejected(self):
+        
         with tempfile.TemporaryDirectory() as temp_dir:
             csv_path = Path(temp_dir) / "duplicate_customers.csv"
 
@@ -65,6 +66,20 @@ class TestMigrationValidation(unittest.TestCase):
 
             with self.assertRaisesRegex(
                 ValueError, "Duplicate customer_id 1"
+            ):
+                load_csv(csv_path)
+
+    def test_missing_customer_id_column_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            csv_path = Path(temp_dir) / "invalid_header.csv"
+
+            with csv_path.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.writer(file)
+                writer.writerow(["first_name", "city"])
+                writer.writerow(["Amina", "Toronto"])
+
+            with self.assertRaisesRegex(
+                ValueError, "must contain a customer_id column"
             ):
                 load_csv(csv_path)
 
