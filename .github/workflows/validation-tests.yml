@@ -12,5 +12,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m unittest -v test_validate_migration.py
-        working-directory: examples
+         - name: Run migration validation unit tests
+      run: python -m unittest -v test_validate_migration.py
+      working-directory: examples
+
+    - name: Compare committed source and target CSV files
+      run: python validate_migration.py
+      working-directory: examples
+      continue-on-error: true
