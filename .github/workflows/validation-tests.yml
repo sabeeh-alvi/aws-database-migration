@@ -1,29 +1,16 @@
 ```yaml
 name: Migration Validation Tests
 
-'on':
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, workflow_dispatch]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-
-      - name: Run migration validation unit tests
+          python-version: "3.12"
+      - run: python -m unittest -v test_validate_migration.py
         working-directory: examples
-        run: python -m unittest -v test_validate_migration.py
 ```
