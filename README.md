@@ -22,15 +22,25 @@ The project is designed to demonstrate understanding of database migration conce
 
 The final design depends on source and target database engines, connectivity, permissions, and available AWS resources.
 
-## Project Deliverables
+## Project Documentation
 
-- Migration architecture and workflow
-- Source and target prerequisites
-- Migration execution checklist
-- Data validation plan
-- IAM and security considerations
-- Troubleshooting guide
-- Cost and cleanup checklist
+| Document | Description |
+|---|---|
+| [Architecture](docs/architecture.md) | Proposed migration flow and AWS component responsibilities |
+| [Prerequisites Checklist](docs/prerequisites-checklist.md) | Compatibility, permissions, connectivity, and readiness checks |
+| [IAM and Security](docs/iam-security.md) | Least privilege, credentials, networking, and data protection |
+| [Data Validation Plan](docs/data-validation.md) | Row counts, record comparisons, CDC verification, and cutover criteria |
+| [Troubleshooting Guide](docs/troubleshooting.md) | Diagnostic steps for permissions, connectivity, load, and replication issues |
+
+## Current Status
+
+**Documentation and planning complete for this initial portfolio milestone.**
+
+The repository contains a proposed architecture and supporting migration plans. No AWS DMS task, endpoint, database migration, or cutover is claimed as deployed or tested.
+
+## Next Milestone
+
+The next milestone is to add a small, reproducible demonstration using synthetic sample data to illustrate source-to-target validation. This can be developed and reviewed in GitHub without creating AWS resources.
 
 ## Scope and Status
 
