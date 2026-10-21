@@ -28,17 +28,32 @@ The sample validation checks:
 | Automation | GitHub Actions |
 | Data type | Synthetic sample data |
 
-## 4. Expected Results
+## 4. Validation Results
 
-The target dataset intentionally contains a discrepancy to demonstrate that the validation script can detect inconsistent data.
+The sample validation compared four source records against four target records.
 
-| Validation check | Expected result |
+| Validation check | Actual result |
 |---|---|
-| Source and target comparison | Discrepancy detected |
-| Unit tests | Pass |
-| Expected-discrepancy workflow check | Pass when a discrepancy is detected |
-| Live AWS DMS migration | Not performed |
-| Production database validation | Not performed |
+| Source records | 4 |
+| Target records | 4 |
+| Missing target records | 0 |
+| Extra target records | 0 |
+| Field mismatches | 1 |
+| Overall data comparison | Discrepancy detected |
+
+### Detected discrepancy
+
+| Customer ID | Field | Source value | Target value |
+|---|---|---|---|
+| 1002 | city | Mississauga | Milton |
+
+All four customer IDs are present in both datasets. However, customer `1002` has a different city value in the target dataset.
+
+### Interpretation
+
+The validation script should return exit code `1` because the source and target datasets are not identical. This is the expected outcome for the intentionally inconsistent sample data.
+
+These results were calculated from the CSV contents in the repository. They are not represented as a captured execution log from the script.
 
 ## 5. Interpretation
 
