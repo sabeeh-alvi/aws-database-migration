@@ -75,3 +75,28 @@ Potential future improvements include:
 - Integrate database-level checks if an authorized test environment becomes available.
 
 **Project status:** Portfolio demonstration with automated tests. No live AWS migration is claimed.
+
+## 8. Console Output Example
+
+The following output is derived from the committed sample CSV contents and the validation script's logic. It is an illustrative example, not a captured execution log.
+
+```text
+Source records: 4
+Target records: 4
+Missing target records: 0
+Extra target records: 0
+Field mismatches: 1
+Mismatch for 1002, column city: source='Mississauga', target='Milton'
+```
+
+### Expected Exit Code
+
+The validation script returns exit code `1` because a field mismatch was detected.
+
+- `0` — Source and target records match.
+- `1` — Data comparison found a discrepancy.
+- `2` — A validation error prevented normal comparison, such as a missing file or duplicate customer ID.
+
+### Why This Matters
+
+A useful migration validation process must report discrepancies clearly and return an appropriate status so automated workflows can respond to the outcome.
