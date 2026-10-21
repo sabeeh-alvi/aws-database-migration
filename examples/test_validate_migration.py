@@ -1,4 +1,3 @@
-```python
 import unittest
 
 from validate_migration import compare_data
@@ -53,4 +52,3 @@ class TestMigrationValidation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-```
